@@ -1,10 +1,10 @@
 require 'yaml'
 class Round
 	attr_reader :players
-	SCORE_ARRAY = YAML.load_file('./public/rpsls_outcomes.yml')
-	VERB_ARRAY = YAML.load_file('./public/rpsls_verbs.yml')
 
 	def initialize player_1:, player_2:
+		@score_array = Game.score_array
+		@verb_array = Game.verb_array
 		@players = [player_1, player_2]
 	end
 
@@ -26,7 +26,7 @@ class Round
 	end
 
 	def winner score_1, score_2
-		case SCORE_ARRAY[score_1][score_2].values.first
+		case Game.score_array[score_1][score_2]#.values.first
 		when "draw"
 			nil
 		when "win"
@@ -37,7 +37,7 @@ class Round
 	end
 
 	def verb score_1, score_2
-		VERB_ARRAY[score_1][score_2]
+		@verb_array[score_1][score_2]
 	end
 
 	def loser

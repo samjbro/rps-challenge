@@ -1,7 +1,7 @@
 feature 'Show results' do
 	
 	before do
-		sign_in_and_play_1_player
+		sign_in_and_play_1_player_rps
 		allow(Kernel).to receive(:rand).and_return(1)
 	end
 
@@ -41,7 +41,7 @@ end
 
 feature "Shows reduced hit points" do
 	before do
-		sign_in_and_play_1_player
+		sign_in_and_play_1_player_rps
 		allow(Kernel).to receive(:rand).and_return(1)
 	end
 	scenario "for player 1 if loser" do
@@ -66,10 +66,10 @@ feature "Shows reduced hit points" do
 end
 feature "Game Over" do
 	scenario "when a player's hit points are 0" do
-		sign_in_and_play_2_player
+		sign_in_and_play_2_player_rps
 		allow(Kernel).to receive(:rand).and_return(100)
 		within('.first') do
-			choose 'Scissors', 'chosen_weapon_2'
+			choose 'Scissors', 'chosen_weapon_1'
 		end
 		within('.second') do
 			choose 'Paper', 'chosen_weapon_2'

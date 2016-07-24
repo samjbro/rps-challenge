@@ -7,6 +7,7 @@ class RockPaperScissors < Sinatra::Base
 
   before do
     @game = Game.instance
+    @weapon_list = Game.weapon_list
   end 
 
   get '/' do
@@ -22,9 +23,18 @@ class RockPaperScissors < Sinatra::Base
     player_1 = Player.new(name: params[:player_1])
   	player_2 = Player.new(name: params[:player_2])
     @game = Game.create(player_1: player_1, player_2: player_2)
-    redirect '/play'
+    redirect '/select_game'
   end
 
+  get '/select_game' do
+    @options = [["Rock, Paper, Scissors, Lizard, Spock","RPSLS"], "Fantasy", "Space", "Dinosaurs"]
+    erb(:select_game)
+  end
+
+  post '/game_type' do
+    Game.set_game_type(type: params[:game_type])
+    redirect '/play'
+  end
 
   get '/play' do
 	 erb(:play)

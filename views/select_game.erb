@@ -1,0 +1,12 @@
+<form action="/game_type" method="post">
+<h2>Which game would you like to play?
+<br>
+<input type="radio" name="game_type" value="<%=@options[0].last%>", id="<%=@options[0].first%>"><%=@options[0].first%></input>
+<br>
+<input type="radio" name="game_type" value="<%=@options[1]%>" id="<%=@options[1]%>"><%=@options[1]%></input>
+<br>
+<input type="radio" name="game_type" value="<%=@options[2]%>" id="<%=@options[2]%>"><%=@options[2]%></input>
+<br>
+<input type="submit" value="Submit">
+</form>
+</h2>

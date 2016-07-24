@@ -1,3 +1,4 @@
+<h1>You are playing <%=Game.game_type%> Battle!
 <h3>Player 1: <%= @game.player_1.name %>'s HP: <%= @game.player_1.hp %>/100
 <br>Player 2: <%= @game.player_2.name %>'s HP: <%= @game.player_2.hp %>/100</h3>
 
@@ -5,25 +6,27 @@
 
 <form action="/choose_weapon" method="post">
 <section class="first">
-<input type="radio" name="chosen_weapon_1" value="Rock", id="Rock">Rock</input>
-<input type="radio" name="chosen_weapon_1" value="Paper" id="Paper">Paper</input>
-<input type="radio" name="chosen_weapon_1" value="Scissors" id="Scissors">Scissors</input>
-<input type="radio" name="chosen_weapon_1" value="Lizard" id="Lizard">Lizard</input>
-<input type="radio" name="chosen_weapon_1" value="Spock" id="Spock">Spock</input>
+<input type="radio" name="chosen_weapon_1" value="<%=@weapon_list[0]%>", id="<%=@weapon_list[0]%>"><%=@weapon_list[0]%></input>
+<input type="radio" name="chosen_weapon_1" value="<%=@weapon_list[1]%>" id="<%=@weapon_list[1]%>"><%=@weapon_list[1]%></input>
+<input type="radio" name="chosen_weapon_1" value="<%=@weapon_list[2]%>" id="<%=@weapon_list[2]%>"><%=@weapon_list[2]%></input>
+<input type="radio" name="chosen_weapon_1" value="<%=@weapon_list[3]%>" id="<%=@weapon_list[3]%>"><%=@weapon_list[3]%></input>
+<input type="radio" name="chosen_weapon_1" value="<%=@weapon_list[4]%>" id="<%=@weapon_list[4]%>"><%=@weapon_list[4]%></input>
 </section>
 
 <% if @game.player_2.name != "Computer" %>
 <br>
 <h3>Welcome Player 2: <%= @game.player_2.name %>!
-<br>Player 2: Choose your weapon!</h3>
+<br>Player 2: Choose your weapon!
 <br>
-<section class="second">
-<input type="radio" name="chosen_weapon_2" value="Rock", id="Rock">Rock</input>
-<input type="radio" name="chosen_weapon_2" value="Paper" id="Paper">Paper</input>
-<input type="radio" name="chosen_weapon_2" value="Scissors" id="Scissors">Scissors</input>
-<input type="radio" name="chosen_weapon_2" value="Lizard" id="Lizard">Lizard</input>
-<input type="radio" name="chosen_weapon_2" value="Spock" id="Spock">Spock</input>
+<section class="second"
+<input type="radio" name="chosen_weapon_2" value="<%=@weapon_list[0]%>", id="<%=@weapon_list[0]%>"><%=@weapon_list[0]%></input>
+<input type="radio" name="chosen_weapon_2" value="<%=@weapon_list[1]%>" id="<%=@weapon_list[1]%>"><%=@weapon_list[1]%></input>
+<input type="radio" name="chosen_weapon_2" value="<%=@weapon_list[2]%>" id="<%=@weapon_list[2]%>"><%=@weapon_list[2]%></input>
+<input type="radio" name="chosen_weapon_2" value="<%=@weapon_list[3]%>" id="<%=@weapon_list[3]%>"><%=@weapon_list[3]%></input>
+<input type="radio" name="chosen_weapon_2" value="<%=@weapon_list[4]%>" id="<%=@weapon_list[4]%>"><%=@weapon_list[4]%></input>
 </section>
 <% end %>
+<br>
 <input type="submit" value="Submit">
 </form>
+</h3>

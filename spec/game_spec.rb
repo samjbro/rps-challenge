@@ -13,21 +13,16 @@ describe Game do
 		it "knows player 2" do
 			expect(game.player_2).to eq player_2
 		end
-
-	context '#result' do
-		it "knows which player has won" do
-			expect(game.result[:winner]).to eq player_2
-		end
-		it "chooses the appropriate verb for the chosen weapons" do
-			expect(game.result[:verb]).to eq "covers"
+	end
+	context '#start_round' do
+		it "creates a new round" do
+			game.start_round
+			expect(game.round).not_to be_nil
 		end
 	end
+	# context '#end_round' do
+	# 	it "ends the current round" do
 
-	context '#loser' do
-		it "knows which player has lost" do
-			expect(game.loser).to eq player_1
-		end
-	end
-
-	end
+	# 	end
+	# end
 end

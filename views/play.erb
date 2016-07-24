@@ -1,6 +1,7 @@
-<h3>Welcome Player 1: <%= @game.player_1.name %>!</h3>
+<h3>Player 1: <%= @game.player_1.name %>'s HP: <%= @game.player_1.hp %>/100
+<br>Player 2: <%= @game.player_2.name %>'s HP: <%= @game.player_2.hp %>/100</h3>
 
-<h2>Player 1: Choose your weapon!</h2>
+<br><%= @game.player_1.name %>: Choose your weapon!</h3>
 
 <form action="/choose_weapon" method="post">
 <section class="first">
@@ -10,11 +11,11 @@
 <input type="radio" name="chosen_weapon_1" value="Lizard" id="Lizard">Lizard</input>
 <input type="radio" name="chosen_weapon_1" value="Spock" id="Spock">Spock</input>
 </section>
+
 <% if @game.player_2.name != "Computer" %>
 <br>
-<h3>Welcome Player 2: <%= @game.player_2.name %>!</h3>
-
-Player 2: Choose your weapon!
+<h3>Welcome Player 2: <%= @game.player_2.name %>!
+<br>Player 2: Choose your weapon!</h3>
 <br>
 <section class="second">
 <input type="radio" name="chosen_weapon_2" value="Rock", id="Rock">Rock</input>

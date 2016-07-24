@@ -2,25 +2,23 @@ require_relative 'weapon'
 
 class Player
 
-	private
-	attr_reader :name, :weapon
-	public
+	DEFAULT_HP = 100
+	DEFAULT_DAMAGE = 25
+
+	attr_reader :name, :weapon, :hp
 
 	def initialize name: nil
 		name ||= "Computer"
 		@name = name
-	end
-
-	def name
-		@name
+		@hp = DEFAULT_HP
 	end
 
 	def choose_weapon weapon: nil
 		@weapon = Weapon.new(type: weapon)
 	end
 
-	def weapon
-		@weapon
+	def take_damage amount: Kernel.rand(5..25)
+		@hp -= amount
 	end
 
 end

@@ -31,4 +31,32 @@ feature 'When playing Rock, Paper, Scissors,' do
 		end
 	end
 
+	scenario "players' hit points are displayed" do
+		sign_in_and_play_1_player
+		expect(page).to have_content "Sam's HP: 100/100"
+		expect(page).to have_content "Computer's HP: 100/100"
+	end
+	scenario "players' reduced hit points are displayed after a round has been played" do
+		sign_in_and_play_1_player
+		allow(Kernel).to receive(:rand).and_return(1)
+		choose "Rock"
+		click_button "Submit"
+		click_button "play_again"
+		expect(page).to have_content "Sam's HP: 99/100"
+		expect(page).to have_content "Computer's HP: 100/100"
+	end
+
 end
+
+
+
+
+
+
+
+
+
+
+
+
+

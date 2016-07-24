@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './lib/player.rb'
 require './lib/game.rb'
+require './lib/round.rb'
 
 class RockPaperScissors < Sinatra::Base
 
@@ -30,12 +31,14 @@ class RockPaperScissors < Sinatra::Base
   end
 
   post '/choose_weapon' do
+    @game.start_round
     @game.player_1.choose_weapon(weapon: params[:chosen_weapon_1])
     @game.player_2.choose_weapon(weapon: params[:chosen_weapon_2])
     redirect '/result'
   end
 
   get '/result' do
+    @game.round.execute
     erb(:result)
   end
 

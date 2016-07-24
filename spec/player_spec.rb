@@ -24,4 +24,11 @@ describe Player do
 			expect(["Rock", "Paper", "Scissors", "Lizard", "Spock"]).to include player.weapon.type
 		end
 	end
+	context '#take_damage' do
+		it "reduces hit points" do
+			allow(Kernel).to receive(:rand).and_return 20
+			expect{ player.take_damage }.to change { player.hp }.by (-20)
+		end
+	end
+
 end

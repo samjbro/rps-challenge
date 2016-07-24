@@ -1,17 +1,13 @@
+require 'yaml'
 class Weapon
-TYPES = ["Rock", "Paper", "Scissors", "Lizard", "Spock"]
-	
-	private
+
+TYPES = YAML.load_file('./public/rpsls_weapons.yml')
+
 	attr_reader :type
-	public
 
 	def initialize type: nil
 		type ||= TYPES[Kernel.rand(0..TYPES.length-1)]
 		@type = type
-	end
-
-	def type
-		@type
 	end
 
 	def score

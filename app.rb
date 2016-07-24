@@ -27,7 +27,7 @@ class RockPaperScissors < Sinatra::Base
   end
 
   get '/select_game' do
-    @options = [["Rock, Paper, Scissors, Lizard, Spock","RPSLS"], "Fantasy", "Space", "Dinosaurs"]
+    @options = [["Rock, Paper, Scissors, Lizard, Spock","RPSLS"], "Fantasy", "Space", "Dinosaur"]
     erb(:select_game)
   end
 
